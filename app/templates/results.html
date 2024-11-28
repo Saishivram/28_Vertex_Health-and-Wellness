@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Prediction Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        .container {
+            width: 80%;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .results {
+            margin-top: 2rem;
+        }
+        .drug {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .drug h3 {
+            font-size: 1.4rem;
+            color: #4CAF50;
+        }
+        .drug p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+        .drug img {
+            max-width: 200px;
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Drug Prediction Results</h1>
+    </header>
+
+    <div class="container">
+        <div class="results">
+            <h2>Alternate Drugs for Disease: {{ disease_name }}</h2>
+
+            <!-- Example drug output, replace with actual logic to render data -->
+            <div class="drug">
+                <h3>Morphine</h3>
+                <p><strong>SMILES:</strong> CN1CCC23C(C1CC2C(=O)C(=C3)O)C</p>
+                <p><strong>Similarity:</strong> 100%</p>
+                <img src="{{ url_for('static', filename='molecule_images/morphine.png') }}" alt="Morphine Image">
+            </div>
+
+            <div class="drug">
+                <h3>Caffeine</h3>
+                <p><strong>SMILES:</strong> CN1C=NC2=C1C(=O)N(C(=O)N2C)C</p>
+                <p><strong>Similarity:</strong> 95%</p>
+                <img src="{{ url_for('static', filename='molecule_images/caffeine.png') }}" alt="Caffeine Image">
+            </div>
+
+            <!-- Add other drugs with similar structure as needed -->
+
+        </div>
+        <a href="{{ url_for('index') }}" class="back-link">Back to Input</a>
+    </div>
+</body>
+</html>

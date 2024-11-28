@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repurposed Drugs Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .back-button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Repurposed Drugs for {{ disease_name }}</h1>
+</header>
+
+<div class="container">
+    <h2>Selected Drug: {{ selected_drug_name }}</h2>
+    <p><strong>SMILES:</strong> {{ selected_drug_smiles }}</p>
+    <img src="{{ molecule_image }}" alt="Drug Molecule Image">
+    
+    <h3>Similar Drugs:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>SMILES</th>
+                <th>Similarity (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for drug in similar_drug_results %}
+                <tr>
+                    <td>{{ drug.SMILES }}</td>
+                    <td>{{ drug.SimilarityPercentage }}%</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/" class="back-button">Back</a>
+</div>
+
+</body>
+</html>
